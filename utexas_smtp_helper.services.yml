@@ -1,0 +1,5 @@
+services:
+  utexas_smtp_helper.smtp_config_override:
+    class: '\Drupal\utexas_smtp_helper\Config\SmtpConfigOverride'
+    tags:
+      - { name: 'config.factory.override', priority: 5 }
