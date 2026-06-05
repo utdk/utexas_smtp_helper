@@ -9,13 +9,6 @@
  * Implements hook_install().
  */
 function utexas_smtp_helper_install() {
-  \Drupal::state()->set('utexas_smtp', 1);
-}
-
-/**
- * Enable UTDK service SMTP for sites using service credentials (#1).
- */
-function utexas_smtp_helper_update_10001() {
   if (!function_exists('pantheon_get_secret')) {
     return;
   }
