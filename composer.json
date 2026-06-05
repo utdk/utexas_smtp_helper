@@ -15,7 +15,7 @@
     "source": "https://github.com/utexas-utdk/utexas_smtp_helper"
   },
   "require": {
-    "utexas/utdk_profile": "^3.0 || dev-develop"
+    "drupal/smtp": "^1.4"
   },
   "config": {
     "sort-packages": true,
