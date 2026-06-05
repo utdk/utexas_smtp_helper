@@ -31,14 +31,12 @@ class SmtpConfigurationForm extends ConfigFormBase {
     // We allow static calls to services.
     // phpcs:ignore
     $opt_in_smtp = \Drupal::state()->get('utexas_smtp', 0);
-    $form['smtp_settings'] = [
-      '#title' => 'UTexas SMTP',
-      '#type' => 'fieldset',
-    ];
-    $form['smtp_settings']['utexas_smtp'] = [
+    $form['intro']['#markup'] = $this->t('<p>Use this form to enable using the UTexas SMTP credentials. When enabled, SMTP credentials (host, port, protocol, username, and password) are sourced from the UTexas Pantheon organization secrets instead of being stored in site configuration.</p>');
+
+    $form['utexas_smtp'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Use the UTexas SMTP service'),
-      '#description' => $this->t('When enabled, SMTP credentials (host, port, protocol, username, and password) are sourced from the UTexas Pantheon organization secrets instead of being stored in site configuration. Uncheck this if the site uses its own SMTP connection.'),
+      '#description' => $this->t('Uncheck this if the site uses its own SMTP connection.'),
       '#default_value' => $opt_in_smtp,
     ];
     return parent::buildForm($form, $form_state);
