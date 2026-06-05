@@ -1,7 +1,7 @@
 {
   "name": "utexas/utexas_smtp_helper",
   "type": "drupal-custom-module",
-  "description": "Drupal module that provides SMTP credentials for use with Pantheon Hosting.",
+  "description": "Provides a configuration override for SMTP credentials for use with Pantheon Hosting.",
   "keywords": [
     "Drupal"
   ],
