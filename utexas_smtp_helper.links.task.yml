@@ -1,0 +1,5 @@
+utexas_smtp_helper.configuration:
+  route_name: utexas_smtp_helper.configuration
+  title: 'SMTP'
+  base_route: utexas.configuration
+  weight: 200

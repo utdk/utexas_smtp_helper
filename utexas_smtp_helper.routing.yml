@@ -1,0 +1,7 @@
+utexas_smtp_helper.configuration:
+  path: '/admin/config/content/utexas/smtp'
+  defaults:
+    _form: '\Drupal\utexas_smtp_helper\Form\SmtpConfigurationForm'
+    _title: 'SMTP'
+  requirements:
+    _permission: 'administer site configuration'
