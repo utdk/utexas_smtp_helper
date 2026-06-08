@@ -10,6 +10,7 @@
  */
 function utexas_smtp_helper_install() {
   if (!function_exists('pantheon_get_secret')) {
+    \Drupal::messenger()->addWarning(t('Pantheon secrets are not available.'));
     return;
   }
   $smtp_config = \Drupal::configFactory()->getEditable('smtp.settings');

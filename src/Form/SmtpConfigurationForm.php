@@ -31,7 +31,7 @@ class SmtpConfigurationForm extends ConfigFormBase {
     // We allow static calls to services.
     // phpcs:ignore
     $opt_in_smtp = \Drupal::state()->get('utexas_smtp', 0);
-    $form['intro']['#markup'] = $this->t('<p>Use this form to enable using the UTexas SMTP credentials. When enabled, SMTP credentials (host, port, protocol, username, and password) are sourced from the UTexas Pantheon organization secrets instead of being stored in site configuration.</p>');
+    $form['intro']['#markup'] = $this->t('<p>Use this form to enable using the UTexas SMTP credentials. When enabled, SMTP credentials (host, port, protocol, username, and password) are sourced from the UTexas Pantheon organization secrets instead of being stored in site configuration. These credentials will override the settings in <a href="../system/smtp">SMTP Authentication Support</a>.</p>');
 
     $form['utexas_smtp'] = [
       '#type' => 'checkbox',
@@ -48,6 +48,10 @@ class SmtpConfigurationForm extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // We allow static calls to services.
     // phpcs:ignore
+    if (!function_exists('pantheon_get_secret')) {
+      \Drupal::messenger()->addWarning($this->t('Pantheon secrets are not available.'));
+      return;
+    }
     \Drupal::state()->set('utexas_smtp', $form_state->getValue('utexas_smtp'));
     parent::submitForm($form, $form_state);
   }
