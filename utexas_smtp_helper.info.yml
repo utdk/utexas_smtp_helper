@@ -5,3 +5,5 @@ core_version_requirement: ^10 || ^11
 version: '1.0.0'
 package: UTexas
 configure: utexas_smtp_helper.configuration
+dependencies:
+  - drupal:smtp

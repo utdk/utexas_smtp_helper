@@ -1,5 +1,0 @@
-utexas_smtp_helper.configuration:
-  route_name: utexas_smtp_helper.configuration
-  title: 'UTexas SMTP'
-  parent: system.admin_config_system
-  weight: 200
