@@ -8,23 +8,6 @@ use Drupal\Core\Extension\Requirement\RequirementSeverity;
  */
 
 /**
- * Implements hook_requirements().
- */
-function utexas_smtp_helper_requirements($phase) {
-  $requirements = [];
-  if ($phase === 'install') {
-    if (!function_exists('pantheon_get_secret')) {
-      $requirements['utexas_smtp_helper_pantheon_secrets'] = [
-        'title' => t('Pantheon Secrets'),
-        'description' => t('The <code>pantheon_get_secret</code> function is not available. This module requires the Pantheon Secrets API, which is only available on Pantheon hosting environments.'),
-        'severity' => RequirementSeverity::Error,
-      ];
-    }
-  }
-  return $requirements;
-}
-
-/**
  * Implements hook_install().
  */
 function utexas_smtp_helper_install() {
