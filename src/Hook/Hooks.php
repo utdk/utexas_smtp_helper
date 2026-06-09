@@ -14,6 +14,16 @@ class Hooks {
   use StringTranslationTrait;
 
   /**
+   * Implements hook_page_top().
+   */
+  #[Hook('page_top')]
+  public function pageTop(array &$page_top): void {
+    if (\Drupal::state()->get('utexas_smtp') && !function_exists('pantheon_get_secret')) {
+      \Drupal::logger('utexas_smtp_helper')->error("Can't override SMTP credentials: Pantheon secrets function not available.");
+    }
+  }
+
+  /**
    * Implements hook_form_FORM_ID_alter().
    */
   #[Hook('form_smtp_admin_settings_alter')]
