@@ -49,7 +49,8 @@ class SmtpConfigurationForm extends ConfigFormBase {
     // We allow static calls to services.
     // phpcs:ignore
     if (!function_exists('pantheon_get_secret')) {
-      \Drupal::messenger()->addWarning($this->t('Pantheon secrets are not available.'));
+      \Drupal::messenger()->addError($this->t("Can't enable UTexas SMTP helper: Pantheon secrets are not available."));
+      \Drupal::logger('utexas_smtp_helper')->error("Can't enable UTexas SMTP helper: Pantheon secrets function not available.");
       return;
     }
     \Drupal::state()->set('utexas_smtp', $form_state->getValue('utexas_smtp'));

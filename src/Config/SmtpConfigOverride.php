@@ -25,6 +25,7 @@ class SmtpConfigOverride implements ConfigFactoryOverrideInterface {
       return $overrides;
     }
     if (!function_exists('pantheon_get_secret')) {
+      \Drupal::logger('utexas_smtp_helper')->error("Can't override SMTP credentials: Pantheon secrets function not available.");
       return $overrides;
     }
     $overrides['smtp.settings']['smtp_on'] = 1;
