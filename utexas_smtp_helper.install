@@ -28,7 +28,6 @@ function utexas_smtp_helper_requirements($phase) {
  * Implements hook_install().
  */
 function utexas_smtp_helper_install() {
-  \Drupal::state()->set('utexas_smtp', 1);
   $smtp_config = \Drupal::configFactory()->getEditable('smtp.settings');
   $smtp_config->set('smtp_username', '');
   $smtp_config->set('smtp_password', '');
@@ -38,11 +37,4 @@ function utexas_smtp_helper_install() {
   $smtp_config->set('smtp_port', '');
   $smtp_config->set('smtp_protocol', '');
   $smtp_config->save();
-}
-
-/**
- * Implements hook_uninstall().
- */
-function utexas_smtp_helper_uninstall() {
-  \Drupal::state()->set('utexas_smtp', 0);
 }

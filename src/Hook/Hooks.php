@@ -18,7 +18,7 @@ class Hooks {
    */
   #[Hook('page_top')]
   public function pageTop(array &$page_top): void {
-    if (\Drupal::state()->get('utexas_smtp') && !function_exists('pantheon_get_secret')) {
+    if (!function_exists('pantheon_get_secret')) {
       \Drupal::logger('utexas_smtp_helper')->error("Can't override SMTP credentials: Pantheon secrets function not available.");
     }
   }
