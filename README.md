@@ -1,3 +1,3 @@
 # UTexas SMTP Helper
 
-This is a Drupal module that provides users an option to opt-in to use the UT SMTP credentials. This will override credentials set in the smtp module.
+This is a Drupal module that provides SMTP credentials for sites on Pantheon. This module supplies the SMTP module with these credentials through a Config Override.
