@@ -1,0 +1,8 @@
+name: UTexas SMTP Helper
+type: module
+description: Provides SMTP credentials for use with Pantheon Hosting.
+core_version_requirement: ^10 || ^11
+version: '1.0.0'
+package: UTexas
+dependencies:
+  - drupal:smtp

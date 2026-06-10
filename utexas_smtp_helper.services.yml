@@ -1,0 +1,7 @@
+parameters:
+  utexas_smtp_helper.skip_procedural_hook_scan: true
+services:
+  utexas_smtp_helper.smtp_config_override:
+    class: '\Drupal\utexas_smtp_helper\Config\SmtpConfigOverride'
+    tags:
+      - { name: 'config.factory.override', priority: 5 }
