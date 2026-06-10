@@ -22,11 +22,11 @@ class SmtpConfigOverride implements ConfigFactoryOverrideInterface {
     if (!function_exists('pantheon_get_secret')) {
       return $overrides;
     }
-    $overrides['smtp.settings']['smtp_on'] = 1;
-    $overrides['smtp.settings']['smtp_autotls'] = 1;
-    $overrides['smtp.settings']['smtp_host'] = pantheon_get_secret('utexas_smtp_host') ?? NULL;
-    $overrides['smtp.settings']['smtp_port'] = pantheon_get_secret('utexas_smtp_port') ?? NULL;
-    $overrides['smtp.settings']['smtp_protocol'] = pantheon_get_secret('utexas_smtp_protocol') ?? NULL;
+    // $overrides['smtp.settings']['smtp_on'] = 1;
+    // $overrides['smtp.settings']['smtp_autotls'] = 1;
+    // $overrides['smtp.settings']['smtp_host'] = pantheon_get_secret('utexas_smtp_host') ?? NULL;
+    // $overrides['smtp.settings']['smtp_port'] = pantheon_get_secret('utexas_smtp_port') ?? NULL;
+    // $overrides['smtp.settings']['smtp_protocol'] = pantheon_get_secret('utexas_smtp_protocol') ?? NULL;
     $overrides['smtp.settings']['smtp_username'] = pantheon_get_secret('utexas_smtp_username') ?? NULL;
     $overrides['smtp.settings']['smtp_password'] = pantheon_get_secret('utexas_smtp_password') ?? NULL;
     return $overrides;
