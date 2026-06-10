@@ -22,7 +22,6 @@ class SmtpConfigOverride implements ConfigFactoryOverrideInterface {
     if (!function_exists('pantheon_get_secret')) {
       return $overrides;
     }
-    $overrides['smtp.settings']['smtp_autotls'] = 1;
     $overrides['smtp.settings']['smtp_host'] = pantheon_get_secret('utexas_smtp_host') ?? '';
     $overrides['smtp.settings']['smtp_port'] = pantheon_get_secret('utexas_smtp_port') ?? '';
     $overrides['smtp.settings']['smtp_protocol'] = pantheon_get_secret('utexas_smtp_protocol') ?? '';

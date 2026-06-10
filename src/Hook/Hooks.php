@@ -23,7 +23,6 @@ class Hooks {
       $form['onoff']['smtp_on']['#disabled'] = TRUE;
     }
     $fields = [
-      'smtp_autotls' => 1,
       'smtp_host' => function_exists('pantheon_get_secret') ? pantheon_get_secret('utexas_smtp_host') ?? '' : '',
       'smtp_port' => function_exists('pantheon_get_secret') ? pantheon_get_secret('utexas_smtp_port') ?? '' : '',
       'smtp_protocol' => function_exists('pantheon_get_secret') ? pantheon_get_secret('utexas_smtp_protocol') ?? '' : '',

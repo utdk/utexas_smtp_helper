@@ -12,8 +12,8 @@ function utexas_smtp_helper_install() {
   $smtp_config = \Drupal::configFactory()->getEditable('smtp.settings');
   $smtp_config->set('smtp_username', '');
   $smtp_config->set('smtp_password', '');
-  $smtp_config->set('smtp_on', 1);
-  $smtp_config->set('smtp_autotls', '');
+  $smtp_config->set('smtp_on', TRUE);
+  $smtp_config->set('smtp_autotls', TRUE);
   $smtp_config->set('smtp_host', '');
   $smtp_config->set('smtp_port', '');
   $smtp_config->set('smtp_protocol', '');
@@ -25,6 +25,7 @@ function utexas_smtp_helper_install() {
  */
 function utexas_smtp_helper_uninstall() {
   $smtp_config = \Drupal::configFactory()->getEditable('smtp.settings');
-  $smtp_config->set('smtp_on', '');
+  $smtp_config->set('smtp_on', FALSE);
+  $smtp_config->set('smtp_autotls', FALSE);
   $smtp_config->save();
 }
