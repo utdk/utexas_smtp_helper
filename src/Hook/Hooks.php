@@ -22,10 +22,15 @@ class Hooks {
     if (isset($form['onoff']['smtp_on'])) {
       $form['onoff']['smtp_on']['#disabled'] = TRUE;
     }
-    $fields = ['smtp_autotls', 'smtp_host', 'smtp_port', 'smtp_protocol'];
-    foreach ($fields as $field) {
-      if (isset($form['server'][$field])) {
-        $form['server'][$field]['#disabled'] = TRUE;
+    $fields = [
+      'smtp_autotls' => 1,
+      'smtp_host' => function_exists('pantheon_get_secret') ? pantheon_get_secret('utexas_smtp_host') ?? '' : '',
+      'smtp_port' => function_exists('pantheon_get_secret') ? pantheon_get_secret('utexas_smtp_port') ?? '' : '',
+      'smtp_protocol' => function_exists('pantheon_get_secret') ? pantheon_get_secret('utexas_smtp_protocol') ?? '' : '',
+    ];
+    foreach ($fields as $key => $value) {
+      if (isset($form['server'][$key])) {
+        $form['server'][$key]['#default_value'] = $value;
       }
     }
   }
