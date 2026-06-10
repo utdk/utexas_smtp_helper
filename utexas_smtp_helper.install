@@ -20,6 +20,9 @@ function utexas_smtp_helper_install() {
   $smtp_config->save();
 }
 
+/**
+ * Implements hook_uninstall().
+ */
 function utexas_smtp_helper_uninstall() {
   $smtp_config = \Drupal::configFactory()->getEditable('smtp.settings');
   $smtp_config->set('smtp_username', '');
