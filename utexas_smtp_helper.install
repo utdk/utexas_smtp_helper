@@ -1,7 +1,5 @@
 <?php
 
-use Drupal\Core\Extension\Requirement\RequirementSeverity;
-
 /**
  * @file
  * Install, update and uninstall functions for the utexas_smtp_helper module.
