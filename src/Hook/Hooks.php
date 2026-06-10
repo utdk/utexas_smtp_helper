@@ -19,10 +19,13 @@ class Hooks {
   #[Hook('form_smtp_admin_settings_alter')]
   public function formSmtpAdminSettingsAlter(array &$form, FormStateInterface $form_state, string $form_id): void {
     \Drupal::messenger()->addMessage($this->t("This module's configuration is being set by the UTexas SMTP Helper module."));
-    $fields = ['smtp_on', 'smtp_autotls', 'smtp_host', 'smtp_port', 'smtp_protocol'];
+    if (isset($form['onoff']['smtp_on'])) {
+      $form['onoff']['smtp_on']['#disabled'] = TRUE;
+    }
+    $fields = ['smtp_autotls', 'smtp_host', 'smtp_port', 'smtp_protocol'];
     foreach ($fields as $field) {
-      if (isset($form[$field])) {
-        $form[$field]['#disabled'] = TRUE;
+      if (isset($form['server'][$field])) {
+        $form['server'][$field]['#disabled'] = TRUE;
       }
     }
   }
